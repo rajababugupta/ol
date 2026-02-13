@@ -1,116 +1,121 @@
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    text-align: center;
-    overflow-x: hidden;
-    color: white;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
-/* Container */
-.container {
-    padding: 20px;
-    margin-top: 30px;
-    position: relative;
-    z-index: 2;
+body{
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow-x:hidden;
+min-height:100vh;
 }
 
-/* Title */
-.title {
-    font-size: 2.2rem;
-    text-shadow: 0 0 20px white;
+/* Proposal */
+.proposal{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+h1{
+font-size:2rem;
+margin-bottom:20px;
 }
 
-/* Photos */
-.photos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin: 20px 0;
+.buttons{
+display:flex;
+gap:15px;
 }
 
-.photos img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 3px solid white;
-    box-shadow: 0 0 15px white;
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-size:1rem;
+cursor:pointer;
+transition:0.3s;
 }
 
-/* Message */
-.message {
-    font-size: 1rem;
-    padding: 0 10px;
-    margin-bottom: 20px;
+#yesBtn{
+background:#ff4b6e;
+color:white;
 }
 
-/* Buttons */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin: 10px;
-    transition: 0.3s ease;
+#noBtn{
+background:white;
+color:#ff4b6e;
 }
 
-#yesBtn {
-    background: #00ff88;
-    color: black;
+/* Sections */
+.hidden{
+display:none;
 }
 
-#noBtn {
-    background: #ff4444;
-    color: white;
+.section{
+padding:60px 20px;
+max-width:700px;
+margin:auto;
 }
 
-/* Popup */
-.popup {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    justify-content: center;
-    align-items: center;
+.main-photo{
+width:200px;
+border-radius:20px;
+margin-top:20px;
 }
 
-.popup-content {
-    background: white;
-    color: black;
-    padding: 20px;
-    border-radius: 20px;
-    width: 85%;
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
 }
 
-.popup img {
-    width: 150px;
-    border-radius: 15px;
+.polaroid{
+background:white;
+color:black;
+padding:10px;
+border-radius:10px;
+width:150px;
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Floating Hearts */
-.heart {
-    position: fixed;
-    bottom: -20px;
-    font-size: 20px;
-    animation: floatUp 8s linear infinite;
-    opacity: 0.8;
+.polaroid img{
+width:100%;
+border-radius:5px;
 }
 
-@keyframes floatUp {
-    0% {
-        transform: translateY(0);
-        opacity: 0.9;
-    }
-    100% {
-        transform: translateY(-110vh);
-        opacity: 0;
-    }
+/* Fade animation */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
 }
 
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Floating hearts */
+.heart{
+position:fixed;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:0}
+100%{transform:translateY(-10vh);opacity:1}
+}
+
+/* Mobile */
+@media(max-width:600px){
+h1{font-size:1.6rem;}
+.section{padding:40px 15px;}
+}
