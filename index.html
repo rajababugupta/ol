@@ -1,85 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Oshu ❤️</title>
-
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <title>For Oshu ❤️</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<audio id="bgm" autoplay loop>
-<source src="your-music.mp3" type="audio/mpeg">
+<audio autoplay loop>
+    <source src="bgm.mp3" type="audio/mpeg">
 </audio>
 
-<div class="proposal" id="proposal">
-<h1>Oshu ❤️<br>Will you be my Valentine?</h1>
-<div class="buttons">
-<button id="yesBtn">Yes</button>
-<button id="noBtn">No</button>
+<div class="hearts"></div>
+
+<div class="container">
+
+    <h1 class="title">I Love You Oshu ❤️</h1>
+    <h2 class="subtitle">My Angrybird 🐦❤️</h2>
+
+    <div class="photos">
+        <img src="yourphoto.jpg">
+        <img src="herphoto.jpg">
+    </div>
+
+    <p class="message">
+        No matter the distance, you are my heart, my strength,
+        and my forever. Always yours, Your Boy ❤️
+    </p>
+
+    <h2 class="question">Will you be my Valentine? 💌</h2>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 😢</button>
+    </div>
+
 </div>
-</div>
 
-<div id="afterYes" class="hidden">
-
-<section class="section fade">
-<h1>I love you Angrybird ❤️</h1>
-<img src="your-happy-photo.jpg" class="main-photo">
-</section>
-
-<section class="section fade">
-<p>
-From the first day we talked to every late night conversation, you became my safe place. I see you in my present and in every future dream. I choose you every day.
-</p>
-</section>
-
-<section class="section fade">
-<h2>Tap if you miss me</h2>
-<button onclick="playVoice()">Hear Your Boy</button>
-<audio id="voice">
-<source src="your-voice.mp3" type="audio/mpeg">
-</audio>
-</section>
-
-<section class="section fade">
-<h2>Our Future</h2>
-<p>
-Airport hugs. Late night cuddles. Building a peaceful life. Growing old but still teasing each other.
-</p>
-</section>
-
-<section class="section fade">
-<h2>My Promise</h2>
-<p>
-I am not perfect. I overthink. I get emotional. But I will always choose you.
-</p>
-</section>
-
-<section class="section fade">
-<h2>Our Memories</h2>
-<div class="gallery">
-<div class="polaroid">
-<img src="photo1.jpg">
-<p>My favorite smile</p>
-</div>
-<div class="polaroid">
-<img src="photo2.jpg">
-<p>The girl who owns my peace</p>
-</div>
-</div>
-</section>
-
-<section class="section fade">
-<p>
-If this website ever fades, remember my love never will.
-</p>
-</section>
-
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <img src="your-happy-photo.jpg">
+        <h2>I love youuu too Oshu ❤️</h2>
+    </div>
 </div>
 
 <script src="script.js"></script>
