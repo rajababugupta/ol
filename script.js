@@ -12,7 +12,7 @@ function typing(){
     if(i < text.length){
         document.querySelector(".typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typing,150);
+        setTimeout(typing,500);
     }
 }
 typing();
@@ -57,3 +57,4 @@ noBtn.addEventListener("click", function() {
 function playVoice(){
     document.getElementById("voice").play();
 }
+
