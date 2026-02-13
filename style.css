@@ -179,7 +179,7 @@ button:hover {
 
 /* Shake animation */
 .shake {
-    animation: shake 0.3s;
+    animation: shake 0.5s;
 }
 
 @keyframes shake {
@@ -193,3 +193,4 @@ button:hover {
     .photos img { width:120px; height:120px; }
     .message { width: 90%; }
 }
+
