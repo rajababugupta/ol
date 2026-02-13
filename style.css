@@ -221,6 +221,8 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 12px;
+    object-position: center;
+
 }
 
 .collage img {
@@ -229,6 +231,7 @@ button:hover {
     object-fit: cover;
     border-radius: 15px;
 }
+
 
 
 
