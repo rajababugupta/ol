@@ -2,24 +2,33 @@
 <html>
 <head>
     <title>For Oshu ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
-<audio autoplay loop>
+<audio id="bgm" autoplay loop>
     <source src="bgm.mp3" type="audio/mpeg">
 </audio>
 
-<div class="hearts"></div>
+<div class="falling-hearts"></div>
 
 <div class="container">
 
-    <h1 class="title">I Love You Oshu ❤️</h1>
+    <h1 class="title">
+        I Love You <span class="typing"></span> ❤️
+    </h1>
+
     <h2 class="subtitle">My Angrybird 🐦❤️</h2>
 
     <div class="photos">
-        <img src="yourphoto.jpg">
-        <img src="herphoto.jpg">
+        <div class="photo-wrapper">
+            <img src="yourphoto.jpg">
+        </div>
+        <div class="photo-wrapper">
+            <img src="herphoto.jpg">
+        </div>
     </div>
 
     <p class="message">
@@ -34,12 +43,33 @@
         <button id="noBtn">No 😢</button>
     </div>
 
+    <!-- Special message section -->
+    <div class="special-message">
+        <p>
+            Write your deep personal message here for her.
+            This is your space to speak from your heart.
+        </p>
+    </div>
+
+    <!-- Hidden Voice Button -->
+    <button class="voice-btn" onclick="playVoice()">Tap this if you miss me 💌</button>
+    <audio id="voice">
+        <source src="voice.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Bottom Love Line -->
+    <div class="bottom-line">
+        If this website ever breaks, if the animations stop, if the music fades…
+        just remember my love for you won’t.
+    </div>
+
 </div>
 
 <div id="popup" class="popup">
     <div class="popup-content">
         <img src="your-happy-photo.jpg">
         <h2>I love youuu too Oshu ❤️</h2>
+        <p>I cannot wait to close this distance and hold you for real.</p>
     </div>
 </div>
 
