@@ -200,6 +200,36 @@ button:hover {
         height: 100px;
     }
 }
+.memory-section {
+    margin-top: 50px;
+}
+
+.memory-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #b03060;
+    margin-bottom: 20px;
+}
+
+.collage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.collage img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.collage img:hover {
+    transform: scale(1.05);
+}
+
 
 
 
