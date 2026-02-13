@@ -192,6 +192,14 @@ button:hover {
 @media(max-width:600px){
     .photos img { width:120px; height:120px; }
     .message { width: 90%; }
+    .collage {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .collage img {
+        height: 100px;
+    }
 }
+
 
 
