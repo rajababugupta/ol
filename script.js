@@ -1,10 +1,19 @@
 let yesBtn = document.getElementById("yesBtn");
 let noBtn = document.getElementById("noBtn");
 let popup = document.getElementById("popup");
+
 let bgm = document.getElementById("bgm");
+let favSong = document.getElementById("favSong");
+let voice = document.getElementById("voice");
 
 let yesSize = 1;
 let noSize = 1;
+
+/* Start soft BGM on first interaction */
+window.addEventListener("click", function startMusic() {
+    bgm.volume = 0.15;
+    bgm.play().catch(()=>{});
+}, { once: true });
 
 /* Typing effect */
 let text = "Oshu";
@@ -18,7 +27,7 @@ function typing(){
 }
 typing();
 
-/* Falling hearts generator */
+/* Falling hearts */
 function createHearts(){
     let heart = document.createElement("span");
     heart.innerHTML = "💖";
@@ -35,22 +44,24 @@ yesBtn.addEventListener("click", function() {
     // Show popup
     popup.style.display = "flex";
 
-    // Play music smoothly
-    bgm.volume = 0;
-    bgm.play().catch(error => {
-        console.log("Audio blocked:", error);
-    });
+    // Stop background music
+    bgm.pause();
+    bgm.currentTime = 0;
 
-    // Soft fade-in effect
-    let fade = setInterval(() => {
-        if (bgm.volume < 0.5) {
-            bgm.volume += 0.05;
+    // Play favorite song
+    favSong.volume = 0;
+    favSong.play().catch(()=>{});
+
+    // Fade in favorite song
+    let fadeIn = setInterval(() => {
+        if (favSong.volume < 0.5) {
+            favSong.volume += 0.05;
         } else {
-            clearInterval(fade);
+            clearInterval(fadeIn);
         }
     }, 200);
 
-    // Confetti effect
+    // Confetti
     confetti({
         particleCount: 200,
         spread: 120
@@ -73,10 +84,23 @@ noBtn.addEventListener("click", function() {
     }
 });
 
-/* Voice */
+/* Voice play without disturbing music */
 function playVoice(){
-    let voice = document.getElementById("voice");
-    voice.play().catch(error => {
-        console.log("Voice blocked:", error);
-    });
+
+    // Lower whichever song is playing
+    if (!favSong.paused) {
+        favSong.volume = 0.1;
+    } else {
+        bgm.volume = 0.05;
+    }
+
+    voice.play().catch(()=>{});
+
+    voice.onended = function(){
+        if (!favSong.paused) {
+            favSong.volume = 0.5;
+        } else {
+            bgm.volume = 0.15;
+        }
+    };
 }
