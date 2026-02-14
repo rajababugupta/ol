@@ -1,6 +1,7 @@
 let yesBtn = document.getElementById("yesBtn");
 let noBtn = document.getElementById("noBtn");
 let popup = document.getElementById("popup");
+let bgm = document.getElementById("bgm");
 
 let yesSize = 1;
 let noSize = 1;
@@ -30,7 +31,26 @@ setInterval(createHearts,500);
 
 /* YES click */
 yesBtn.addEventListener("click", function() {
+
+    // Show popup
     popup.style.display = "flex";
+
+    // Play music smoothly
+    bgm.volume = 0;
+    bgm.play().catch(error => {
+        console.log("Audio blocked:", error);
+    });
+
+    // Soft fade-in effect
+    let fade = setInterval(() => {
+        if (bgm.volume < 0.5) {
+            bgm.volume += 0.05;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
+
+    // Confetti effect
     confetti({
         particleCount: 200,
         spread: 120
@@ -55,6 +75,8 @@ noBtn.addEventListener("click", function() {
 
 /* Voice */
 function playVoice(){
-    document.getElementById("voice").play();
+    let voice = document.getElementById("voice");
+    voice.play().catch(error => {
+        console.log("Voice blocked:", error);
+    });
 }
-
