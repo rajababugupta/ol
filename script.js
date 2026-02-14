@@ -11,7 +11,7 @@ let noSize = 1;
 
 /* Play bgm when clicking anywhere (only once) */
 window.addEventListener("click", function startMusic() {
-    bgm.volume = 0.2;
+    bgm.volume = 0.1;
     bgm.play().catch(()=>{});
 }, { once: true });
 
@@ -78,3 +78,4 @@ noBtn.addEventListener("click", function() {
 function playVoice(){
     voice.play().catch(()=>{});
 }
+
