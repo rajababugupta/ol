@@ -76,7 +76,21 @@ noBtn.addEventListener("click", function() {
 
 /* Voice button */
 function playVoice(){
+
+    // Lower background music
+    bgm.volume = 0.05;
+    favSong.volume = 0.1;
+
+    // Make voice louder
+    voice.volume = 1.0;
     voice.play().catch(()=>{});
+
+    // When voice ends, restore music volume
+    voice.onended = function(){
+        bgm.volume = 0.2;
+        favSong.volume = 0.5;
+    };
 }
+
 
 
