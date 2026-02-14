@@ -9,9 +9,9 @@ let voice = document.getElementById("voice");
 let yesSize = 1;
 let noSize = 1;
 
-/* Start soft BGM on first interaction */
+/* Play bgm when clicking anywhere (only once) */
 window.addEventListener("click", function startMusic() {
-    bgm.volume = 0.15;
+    bgm.volume = 0.2;
     bgm.play().catch(()=>{});
 }, { once: true });
 
@@ -41,25 +41,15 @@ setInterval(createHearts,500);
 /* YES click */
 yesBtn.addEventListener("click", function() {
 
-    // Show popup
     popup.style.display = "flex";
 
-    // Stop background music
+    // Stop bgm
     bgm.pause();
     bgm.currentTime = 0;
 
     // Play favorite song
-    favSong.volume = 0;
+    favSong.volume = 0.5;
     favSong.play().catch(()=>{});
-
-    // Fade in favorite song
-    let fadeIn = setInterval(() => {
-        if (favSong.volume < 0.5) {
-            favSong.volume += 0.05;
-        } else {
-            clearInterval(fadeIn);
-        }
-    }, 200);
 
     // Confetti
     confetti({
@@ -84,23 +74,7 @@ noBtn.addEventListener("click", function() {
     }
 });
 
-/* Voice play without disturbing music */
+/* Voice button */
 function playVoice(){
-
-    // Lower whichever song is playing
-    if (!favSong.paused) {
-        favSong.volume = 0.1;
-    } else {
-        bgm.volume = 0.05;
-    }
-
     voice.play().catch(()=>{});
-
-    voice.onended = function(){
-        if (!favSong.paused) {
-            favSong.volume = 0.5;
-        } else {
-            bgm.volume = 0.15;
-        }
-    };
 }
